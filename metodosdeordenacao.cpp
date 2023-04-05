@@ -52,10 +52,18 @@ struct Time {
 };
 
 /*------------------------------------------------bubbleSort-----------------------------------------------------------------*/
+/*Bubble Sort:
+O algoritmo Bubble Sort compara os elementos adjacentes do array e os troca de posição, 
+se necessário. Ele percorre o array várias vezes, 
+comparando e trocando os elementos até que todo o array esteja ordenado.
+ O algoritmo é chamado de Bubble Sort porque, 
+ à medida que ele percorre o array, os maiores elementos "flutuam" para o final do array, como bolhas subindo na água.*/
+
 void bubbleSort(Time times[]){
     Time time2;
     
     printf("\n Tabela ordenada com bubbleSort \n");
+    printf("\nNome  Jogo  Pontos Vitorias Empates Derrotas  saldo GolsPRO GolsContra Aproveitamentos \n");
      for(int i = 0; i<12; i++){
         for(int j =0; j<12;j++){
                 if(times[i].pontos>times[j].pontos){
@@ -82,10 +90,16 @@ void bubbleSort(Time times[]){
     
 }
 /*---------------------------------------------------selectionSort--------------------------------------------------------------*/
+/*Selection Sort:
+O algoritmo Selection Sort encontra o menor elemento no array e o coloca na primeira posição. Em seguida, 
+encontra o próximo menor elemento e o coloca na segunda posição, e assim por diante. 
+Ele percorre o array apenas uma vez para cada elemento, 
+encontrando o menor elemento restante e colocando-o na posição correta.*/
 void selectionSort(Time times[]){
     Time time2;
 
      printf("\n Tabela ordenada com selectionSort \n");
+     printf("\nNome  Jogo  Pontos Vitorias Empates Derrotas  saldo GolsPRO GolsContra Aproveitamentos \n");
     for(int i = 0; i<12;i++){
         for(int j = i+1; j<12;j++){
             if(times[i].pontos<times[j].pontos){
@@ -112,7 +126,7 @@ void selectionSort(Time times[]){
 
 }
 /*---------------------------------------------------verifica--------------------------------------------------------------*/
-bool verifica(Time times, Time time2){
+bool troca(Time times, Time time2){
         if(times.pontos<time2.pontos){
             return true;
         }else if(times.pontos==time2.pontos &&times.vitorias<time2.vitorias){
@@ -129,14 +143,20 @@ bool verifica(Time times, Time time2){
     }
 
 /*------------------------------------------------insertionsort-----------------------------------------------------------------*/
+/*Insertion Sort:
+O algoritmo Insertion Sort percorre o array da esquerda para a direita e insere cada elemento na posição correta.
+ Ele começa com o segundo elemento do array e compara com o primeiro elemento. 
+ Se o segundo elemento for menor que o primeiro, eles são trocados.
+  Em seguida, ele compara o terceiro elemento com o segundo elemento e assim por diante, até que todo o array esteja ordenado.*/
 void insertionsort(Time times[]){
     Time time2;
     int i , j;
 
     printf("\nTabela ordenada com insertionsort \n");
+    printf("\nNome  Jogo  Pontos Vitorias Empates Derrotas  saldo GolsPRO GolsContra Aproveitamentos \n");
     for(i = 1; i<12;i++){
         time2 = times[i];
-        for(j = i-1; j>=0 && verifica(times[j], time2) == true; j--){
+        for(j = i-1; j>=0 && troca(times[j], time2) == true; j--){
                  times[j+1] = times[j];
 
             }
@@ -152,23 +172,23 @@ int main() {
     char t1[4], t2[4];
     int r1, r2, ultimo_id = -1;
     FILE *f = fopen("dados.txt", "r+");
-/*---------------------------------------------------L� o arquivo--------------------------------------------------------------*/
+/*---------------------------------------------------Lê o arquivo--------------------------------------------------------------*/
     while(fscanf(f, "%s %dX%d %s", t1, &r1, &r2, t2) != EOF) {
         int i1 = -1, i2 = -1;
         for (int i = 0; i <= ultimo_id; i++) {
-            if (strcmp(times[i].nome, t1) == 0) { // Checa se t1 j� existe
+            if (strcmp(times[i].nome, t1) == 0) { // Checa se t1 já existe
                 i1 = i;
             }
-            if (strcmp(times[i].nome, t2) == 0) { // Checa se t2 j� existe
+            if (strcmp(times[i].nome, t2) == 0) { // Checa se t2 já existe
                 i2 = i;
             }
         }
-        if (i1 == -1) { // Se t1 n�o existe, cria um novo no vetor
+        if (i1 == -1) { // Se t1 não existe, cria um novo no vetor
             ultimo_id++;
             strcpy(times[ultimo_id].nome, t1);
             i1 = ultimo_id;
         }
-        if (i2 == -1) { // Se t2 n�o existe, cria um novo no vetor
+        if (i2 == -1) { // Se t2 não existe, cria um novo no vetor
             ultimo_id++;
             strcpy(times[ultimo_id].nome, t2);
             i2 = ultimo_id;
