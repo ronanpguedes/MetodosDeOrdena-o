@@ -6,7 +6,7 @@
 #define MAX_CARACTER 100  
 
 /*----------------------------------trocar----------------------------------------------------*/
-void troca(char nomes[MAX_NOMES][MAX_CARACTER], int i, int j)
+void troca(char nomes[][MAX_CARACTER], int i, int j)
 {
     char temp[MAX_CARACTER];
     strcpy(temp, nomes[i]);
