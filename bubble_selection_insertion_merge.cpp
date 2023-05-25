@@ -70,17 +70,17 @@ void merge(char nomes[][MAX_CARACTER], int inicio, int meio, int fim)
     int n2 = fim - meio;
 
     // vetores auxiliares
-    char esq[n1][MAX_CARACTER];
-    char dir[n2][MAX_CARACTER];
+    char esquerda[n1][MAX_CARACTER];
+    char direita[n2][MAX_CARACTER];
 
     // copia os dados para os vetores auxiliares
     for (i = 0; i < n1; i++)
     {
-        strcpy(esq[i], nomes[inicio + i]);
+        strcpy(esquerda[i], nomes[inicio + i]);
     }
     for (j = 0; j < n2; j++)
     {
-        strcpy(dir[j], nomes[meio + 1 + j]);
+        strcpy(direita[j], nomes[meio + 1 + j]);
     }
 
     // intercala os vetores auxiliares de volta ao vetor original
@@ -89,31 +89,31 @@ void merge(char nomes[][MAX_CARACTER], int inicio, int meio, int fim)
     k = inicio;
     while (i < n1 && j < n2)
     {
-        if (strcmp(esq[i], dir[j]) <= 0)
+        if (strcmp(esquerda[i], direita[j]) <= 0)
         {
-            strcpy(nomes[k], esq[i]);
+            strcpy(nomes[k], esquerda[i]);
             i++;
         }
         else
         {
-            strcpy(nomes[k], dir[j]);
+            strcpy(nomes[k], direita[j]);
             j++;
         }
         k++;
     }
 
-    // copia os elementos restantes do vetor esquerdo, se houver
+    // copia os elementos restantes do vetor esquerdauerdo, se houver
     while (i < n1)
     {
-        strcpy(nomes[k], esq[i]);
+        strcpy(nomes[k], esquerda[i]);
         i++;
         k++;
     }
 
-    // copia os elementos restantes do vetor direito, se houver
+    // copia os elementos restantes do vetor direitaeito, se houver
     while (j < n2)
     {
-        strcpy(nomes[k], dir[j]);
+        strcpy(nomes[k], direita[j]);
         j++;
         k++;
     }
