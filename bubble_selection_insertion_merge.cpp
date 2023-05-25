@@ -102,7 +102,7 @@ void merge(char nomes[][MAX_CARACTER], int inicio, int meio, int fim)
         k++;
     }
 
-    // copia os elementos restantes do vetor esquerdauerdo, se houver
+    // copia os elementos restantes do vetor esquerdo, se houver
     while (i < n1)
     {
         strcpy(nomes[k], esquerda[i]);
@@ -110,7 +110,7 @@ void merge(char nomes[][MAX_CARACTER], int inicio, int meio, int fim)
         k++;
     }
 
-    // copia os elementos restantes do vetor direitaeito, se houver
+    // copia os elementos restantes do vetor direito, se houver
     while (j < n2)
     {
         strcpy(nomes[k], direita[j]);
