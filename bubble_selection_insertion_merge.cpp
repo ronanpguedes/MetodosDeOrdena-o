@@ -165,6 +165,7 @@ int main()
     // lista os nomes do arquivo que sao armazena no vetor de nomes
     while (!feof(arquivo))
     {
+        //fgets para ler a linha
         fgets(nomes[n], MAX_CARACTER, arquivo);
         n++;
     }
