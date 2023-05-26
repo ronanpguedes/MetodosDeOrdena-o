@@ -145,7 +145,7 @@ void imprime_nomes(char nomes[][MAX_CARACTER], int n)
 /*----------------------------------main----------------------------------------------------*/
 int main()
 {
-
+    //FILE *arquivo para ler o mesmo; 
     FILE *arquivo;                      
     char nome_arquivo[] = "nome_arquivo.txt"; 
     char nomes[MAX_NOMES][MAX_CARACTER];   
