@@ -147,13 +147,13 @@ int main()
 {
     //FILE *arquivo para ler o mesmo; 
     FILE *arquivo;                      
-    char nome_arquivo[] = "nome_arquivo.txt"; 
+    char nome_arquivo[] = "nome2.txt"; 
     char nomes[MAX_NOMES][MAX_CARACTER];   
     int opcao;            
     int n = 0;                          
 
     // abre o arquivo em modo de leitura
-    arquivo = fopen("nome_arquivo.txt", "r");
+    arquivo = fopen("nome2.txt", "r");
 
     // verifica se o arquivo foi aberto com sucesso
     if (arquivo == NULL)
