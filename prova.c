@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <time.h>
 /*-----------------------gerarVetor------------------------------*/
 void gerarVetor(int vetor[], int tamanho) {
+	srand(time(NULL));
 	int i;
     for ( i = 0; i < tamanho; i++) {
         vetor[i] = rand() % 100;
