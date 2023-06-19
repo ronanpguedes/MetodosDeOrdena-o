@@ -4,13 +4,15 @@
 
 /*-----------------------gerarVetor------------------------------*/
 void gerarVetor(int vetor[], int tamanho) {
-    for (int i = 0; i < tamanho; i++) {
+	int i;
+    for ( i = 0; i < tamanho; i++) {
         vetor[i] = rand() % 100;
     }
 }
 /*-----------------------insertionSort------------------------------*/
 void insertionSort(int vetor[], int tamanho) {
-    for (int i = 1; i < tamanho; i++) {
+	int i;
+    for ( i = 1; i < tamanho; i++) {
         int chave = vetor[i];
         int j = i - 1;
         while (j >= 0 && vetor[j] > chave) {
@@ -73,7 +75,8 @@ void mergeSort(int vetor[], int inicio, int fim) {
 }
 /*---------------------BuscaSeguencial--------------------------------*/
 int buscaSequencial(int vetor[], int tamanho, int numero) {
-    for (int i = 0; i < tamanho; i++) {
+	int i;
+    for ( i = 0; i < tamanho; i++) {
         if (vetor[i] == numero) {
             return i;
         }
@@ -100,7 +103,8 @@ int buscaBinaria(int vetor[], int tamanho, int numero) {
 /*-----------------------exibirVetor------------------------------*/
 void exibirVetor(int vetor[], int tamanho) {
     printf("Vetor: ");
-    for (int i = 0; i < tamanho; i++) {
+    int i;
+    for ( i = 0; i < tamanho; i++) {
         printf("%d ", vetor[i]);
     }
     printf("\n");
